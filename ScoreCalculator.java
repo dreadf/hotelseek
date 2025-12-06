@@ -39,12 +39,7 @@ public class ScoreCalculator {
         for(Hotel v : hotels){
                 Dijkstra.PathResult result = Dijkstra.findShortestPath(graph, startLocation, v.getLocation());
                 int distance = result.getDistance();
-                
-                if(distance >= 999999) {
-                    v.setScore(-999999); 
-                } else {
-                    v.setScore(100 - distance); 
-                }
+                v.setScore(100 - distance); 
             }
     }
 }
