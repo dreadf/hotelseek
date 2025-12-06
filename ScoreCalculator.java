@@ -26,7 +26,7 @@ public class ScoreCalculator {
         } else if (priority == 3){
             wprice = 0.5;
             wreview = 0.5;
-        }
+        } 
 
         for(Hotel h: hotels){
             double scoreR = h.getReview()/5;
@@ -34,5 +34,17 @@ public class ScoreCalculator {
             double scoreFin = (scoreR * wreview) + (scoreP * wprice);
             h.setScore(scoreFin);
         }
+    }
+    public void calculateLocation(List<Hotel> hotels, Graph graph, String startLocation){
+        for(Hotel v : hotels){
+                Dijkstra.PathResult result = Dijkstra.findShortestPath(graph, startLocation, v.getLocation());
+                int distance = result.getDistance();
+                
+                if(distance >= 999999) {
+                    v.setScore(-999999); 
+                } else {
+                    v.setScore(100 - distance); 
+                }
+            }
     }
 }

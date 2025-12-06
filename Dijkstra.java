@@ -1,38 +1,92 @@
 import java.util.*;
 
 public class Dijkstra {
-     public int[] dijkstra(int start, int[] parent) {
-        int[] dist = new int[n];
+     static class PathResult {
+        List<String> path;
+        int distance;
+        
+        public PathResult(List<String> path, int distance) {
+            this.path = path;
+            this.distance = distance;
+        }
+        
+        public List<String> getPath() {
+            return path;
+        }
+        
+        public int getDistance() {
+            return distance;
+        }
+    }
+    
+    static class NodeDistance {
+        int vertexIndex;
+        int distance;
+        
+        public NodeDistance(int vertexIndex, int distance) {
+            this.vertexIndex = vertexIndex;
+            this.distance = distance;
+        }
+    }
+
+    public static PathResult findShortestPath(Graph graph, String start, String end) {
+        int startIndex = graph.getIndex(start);
+        int endIndex = graph.getIndex(end);
+        
+        if (startIndex == -1 || endIndex == -1) {
+            return new PathResult(new ArrayList<>(), 999999999);
+        }
+        
+        int n = graph.getNumVertices();
+        int[] distances = new int[n];
+        int[] previous = new int[n];
         boolean[] visited = new boolean[n];
-        Arrays.fill(dist, Integer.MAX_VALUE);
-        Arrays.fill(parent, -1);
-        dist[start] = 0;
+        
+        PriorityQueue<NodeDistance> pq = new PriorityQueue<>(Comparator.comparingInt(nd -> nd.distance));
+        
+        for (int i = 0; i < n; i++) {
+            distances[i] = 999999999;
+            previous[i] = -1;
+        }
 
-        PriorityQueue<int[]> pq = 
-        new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
-        pq.add(new int[]{start, 0});
-
+        distances[startIndex] = 0;
+        pq.offer(new NodeDistance(startIndex, 0));
+        
         while (!pq.isEmpty()) {
-            int[] cur = pq.poll();
-            int u = cur[0];
-
-            if (visited[u]) continue;
-            visited[u] = true;
-
-            for (Edge e : adj.get(u)) {
-                int v = e.to;
-                int w = e.weight;
-
-                if (!visited[v] && dist[u] != Integer.MAX_VALUE &&
-                    dist[u] + w < dist[v]) {
-
-                    dist[v] = dist[u] + w;
-                    parent[v] = u;
-                    pq.add(new int[]{v, dist[v]});
+            NodeDistance current = pq.poll();
+            int currentVertex = current.vertexIndex;
+            
+            if (visited[currentVertex]){
+                continue;
+            }
+            
+            visited[currentVertex] = true;
+            
+            if (currentVertex == endIndex){
+                break;
+            }
+            
+            for (Graph.Edge edge : graph.getAdjacentEdges(currentVertex)) {
+                int neighbor = edge.getDes();
+                int newDist = distances[currentVertex] + edge.getDis();
+                
+                if (newDist < distances[neighbor]) {
+                    distances[neighbor] = newDist;
+                    previous[neighbor] = currentVertex;
+                    pq.offer(new NodeDistance(neighbor, newDist));
                 }
             }
         }
-
-        return dist;
+        
+        //Buat pathnya lagi
+        List<String> path = new ArrayList<>();
+        int current = endIndex;
+        
+        while (current != -1) {
+            path.add(0, graph.getVertexName(current));
+            current = previous[current];
+        }
+        
+        return new PathResult(path, distances[endIndex]);
     }
 }

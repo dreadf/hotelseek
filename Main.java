@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main{
@@ -81,10 +83,10 @@ public class Main{
         system.addHotel("Hotel O", 3.8, 92000, "Merr");
         system.addHotel("Hotel Gunawangsa", 4.3, 367000, "Merr");
         
-        for(Hotel v:system.getHotels()){
-            v.printHotel();
-            System.out.println(" ");
-        }
+        // for(Hotel v:system.getHotels()){
+        //     v.printHotel();
+        //     System.out.println(" ");
+        // }
 
         Scanner input = new Scanner(System.in);
 
@@ -123,22 +125,66 @@ public class Main{
         System.out.println("=============================================================");
         
         System.out.println(" ");
+        System.out.println("   Lokasi yang Tersedia:");
+        System.out.println("   " + String.join(", ", locations));
+        System.out.println(" ");
         System.out.print("   >> Masukkan lokasi Anda saat ini: ");
         String startLocation = input.next();
         System.out.println(" ");
+        
+        while (system.getGraph().getIndex(startLocation) == -1) {
+            System.out.println("   Lokasi tidak ketemu! Tolong pilih sesuai lokasi yang tersedia");
+            System.out.print("   >> Masukkan lokasi Anda saat ini: ");
+            startLocation = input.next();
+            System.out.println(" ");
+        }
 
         System.out.println("=============================================================");
         System.out.println(" ");
 
         ScoreCalculator calculator = new ScoreCalculator();
-        calculator.calculateScore(system.getHotels(), prioritas);
+
+        if(prioritas == 4){
+            calculator.calculateLocation(system.getHotels(), system.getGraph(), startLocation);
+        } else {
+            calculator.calculateScore(system.getHotels(), prioritas);
+        }
 
         Sorting.quickSort(system.getHotels());
+        Hotel bestHotel = system.getHotels().get(0);
         
-        for(Hotel h: system.hotels){
-            System.out.printf("%-25s | %s", h.getName(), h.getScore());
+        double bestScore = system.getHotels().get(0).getScore();
+        List<Hotel> topPicks = new ArrayList<>();
+        
+        for (Hotel h : system.getHotels()) {
+            if (h.getScore() == bestScore) {
+                topPicks.add(h);
+            } 
+        }
+        
+        System.out.println("FOUND " + topPicks.size() + " RECOMMENDED OPTION(S)");
+        System.out.println(" ");
+        System.out.println("=============================================================");
+        System.out.println(" ");
+
+        for (Hotel h : topPicks) {
+            System.out.println("\n----------------- [ " + h.getName() + " ] -----------------");
+            System.out.println("");
+            h.printHotel();
+            Dijkstra.PathResult result = Dijkstra.findShortestPath(system.getGraph(), startLocation, bestHotel.getLocation());
+        
+            System.out.println("Dari\t\t: " + startLocation);
+            System.out.println("Ke\t\t: " + bestHotel.getLocation());
+            System.out.println("Jarak\t\t: " + result.getDistance() + " km");
+            System.out.println("Rute\t\t: " + String.join(" → ", result.getPath()));
             System.out.println(" ");
         }
+        System.out.println("=============================================================");
+        
+        // for(Hotel h: system.hotels){
+        //     System.out.printf("%-25s | %s", h.getName(), h.getScore());
+        //     System.out.println(" ");
+        // }
     }
 }
 

@@ -41,6 +41,6 @@ public class Hotel {
         System.out.println("Name\t\t: " + getName());
         System.out.println("Review\t\t: " + getReview());
         System.out.println("Price\t\t: " + getPrice());
-        System.out.println("Location\t: " + getLocation());
+        System.out.println("Lokasi\t\t: " + getLocation());
     }
 }

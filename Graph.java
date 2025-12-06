@@ -37,7 +37,18 @@ public class Graph {
         return nVertices;
     }
 
-    public String[] vertices(){
+    public LinkedList<Edge> getAdjacentEdges(int vertex) {
+        return adjacencyList[vertex];
+    }
+
+    public String getVertexName(int index) {
+        if (index >= 0 && index < vertices.length) {
+            return vertices[index];
+        }
+        return null;
+    }
+
+    public String[] getVertices(){
         return vertices;
     }
 

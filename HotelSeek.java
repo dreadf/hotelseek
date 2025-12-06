@@ -12,6 +12,10 @@ public class HotelSeek {
     public List<Hotel> getHotels(){
         return hotels;
     }
+    
+    public Graph getGraph(){
+        return cityMap;
+    }
 
     public void addHotel(String name, double review, int price, String location){
         hotels.add(new Hotel(name, review, price, location));
