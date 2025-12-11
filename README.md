@@ -5,10 +5,10 @@ HotelSeek is ..
 
 PPT History
 First PPT:
-•⁠  ⁠Mengemukakan ide dan rencana projek bernama HotelSeek
-•⁠  ⁠Ide implementasi algoritma didasari dari kebutuhan pencarian hotel ketika wisata untuk itenerary
-•⁠  ⁠Sistem digunakan untuk mencari hotel paling murah, rating terbaik, dan tercepat dijangkau
-•⁠  ⁠Dipilihnya quick sort dan Dijkstra's algorithm
+- Mengemukakan ide dan rencana projek bernama HotelSeek
+- Ide implementasi algoritma didasari dari kebutuhan pencarian hotel ketika wisata untuk itenerary
+- Sistem digunakan untuk mencari hotel paling murah, rating terbaik, dan tercepat dijangkau
+- Dipilihnya quick sort dan Dijkstra's algorithm
 
 PPT Progress:
 •⁠  ⁠Membuat Graph untuk tiap daerah di Surabaya Timur
