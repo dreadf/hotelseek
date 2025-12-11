@@ -34,8 +34,8 @@ public class Main{
         
         // From Kertajaya
         system.addRoute("Kertajaya", "Kejawan", 4);
-        system.addRoute("Kertajaya", "Nginden", 10);
-        system.addRoute("Kertajaya", "Semolowaru", 8);
+        system.addRoute("Kertajaya", "Nginden", 3);
+        system.addRoute("Kertajaya", "Semolowaru", 2);
         
         // From Kejawan
         system.addRoute("Kejawan", "Keputih", 6);
@@ -113,12 +113,13 @@ public class Main{
         System.out.println("   [1] 💰 PRICE     ");
         System.out.println("   [2] ⭐ REVIEW    ");
         System.out.println("   [3] ⚖️ BALANCED  ");
-        System.out.println("   [4] 📍 LOCATION  ");
+        System.out.println("   [4] 📍 NEARBY HOTEL  ");
+        System.out.println("   [5] 🗺️ DESTINATION  ");
         System.out.println("");
         System.out.println("=============================================================");
         
         System.out.println(" ");
-        System.out.print("   >> Masukkan pilihan Anda (1-4): ");
+        System.out.print("   >> Masukkan pilihan Anda (1-5): ");
         int prioritas = input.nextInt();
         System.out.println(" ");
 
@@ -139,6 +140,20 @@ public class Main{
             System.out.println(" ");
         }
 
+        String endLocation = " ";
+        if(prioritas == 5){
+            System.out.print("   >> Masukkan destinasi Anda: ");
+            endLocation = input.next();
+            System.out.println(" ");
+
+            while (system.getGraph().getIndex(endLocation) == -1) {
+                System.out.println("   Lokasi tidak ketemu! Tolong pilih sesuai lokasi yang tersedia");
+                System.out.print("   >> Masukkan destinasi Anda: ");
+                endLocation = input.next();
+                System.out.println(" ");
+            }
+        }
+
         System.out.println("=============================================================");
         System.out.println(" ");
 
@@ -146,6 +161,8 @@ public class Main{
 
         if(prioritas == 4){
             calculator.calculateLocation(system.getHotels(), system.getGraph(), startLocation);
+        } else if (prioritas == 5){
+            calculator.calculateLocation(system.getHotels(), system.getGraph(), endLocation);
         } else {
             calculator.calculateScore(system.getHotels(), prioritas);
         }
@@ -179,7 +196,32 @@ public class Main{
             System.out.println("Rute\t\t: " + String.join(" → ", result.getPath()));
             System.out.println(" ");
         }
+
+
         System.out.println("=============================================================");
+        System.out.println(" ");
+        System.out.println("TOP 5 HOTEL BASED ON YOUR PRIORITY");
+        System.out.println(" ");
+        System.out.println("=============================================================");
+        System.out.println(" ");
+
+        for (int i = 0; i < 5; i++){
+            Hotel h = system.getHotels().get(i);
+            System.out.println("\n----------------- [ " + h.getName() + " ] -----------------");
+            System.out.println("");
+            h.printHotel();
+            Dijkstra.PathResult result = Dijkstra.findShortestPath(system.getGraph(), startLocation, h.getLocation());
+        
+            System.out.println("Dari\t\t: " + startLocation);
+            System.out.println("Ke\t\t: " + h.getLocation());
+            System.out.println("Jarak\t\t: " + result.getDistance() + " km");
+            System.out.println("Rute\t\t: " + String.join(" → ", result.getPath()));
+            System.out.println(" ");
+        }
+
+        System.out.println(" ");
+        System.out.println("=============================================================");
+        
         
         // for(Hotel h: system.hotels){
         //     System.out.printf("%-25s | %s", h.getName(), h.getScore());

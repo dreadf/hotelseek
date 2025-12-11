@@ -35,11 +35,12 @@ public class ScoreCalculator {
             h.setScore(scoreFin);
         }
     }
+    
     public void calculateLocation(List<Hotel> hotels, Graph graph, String startLocation){
         for(Hotel v : hotels){
                 Dijkstra.PathResult result = Dijkstra.findShortestPath(graph, startLocation, v.getLocation());
                 int distance = result.getDistance();
                 v.setScore(100 - distance); 
-            }
+        }
     }
 }

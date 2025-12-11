@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class HotelSeek {
+public class HotelSeek{
     Graph cityMap;
     List<Hotel> hotels;
 
