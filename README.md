@@ -11,11 +11,11 @@
 
 Kelas : D
 
-Nomor Kelompok : 4
+Program Studi : Sistem Informasi
 
-Mata Kuliah : ASD
+Mata Kuliah: Algoritma & Struktur Data (ASD)
 
-Dosen Pengampu : Renny Pradina Kusumawardani
+Dosen Pengampu: Renny Pradina Kusumawardani, S.T., M.T.
 
 Nama Proyek : HotelSeek
 
@@ -71,40 +71,43 @@ Graph akan digunakan untuk menyimpan data peta daerah dan korelasinya/edges yang
 
 Untuk penyimpanan data review hotel, object class hotel akan dibuat dan menampung data nama hotel beserta rating hotel tersebut
 
+![WhatsApp Image 2025-12-14 at 15 57 44_736882c7](https://github.com/user-attachments/assets/4ba6b76f-d78d-4568-a821-650ebe5eae95)
+
 ## F. PROGRES PRESENTASI
 ### 1. First PPT
 
-Mengemukakan ide dan rencana proyek HotelSeek
+- Mengemukakan ide dan rencana proyek HotelSeek
 
-Implementasi algoritma didasari kebutuhan pencarian hotel untuk itinerary wisata
+- Implementasi algoritma didasari kebutuhan pencarian hotel untuk itinerary wisata
 
-Sistem difokuskan pada pencarian hotel termurah, rating terbaik, dan rute tercepat
+- Sistem difokuskan pada pencarian hotel termurah, rating terbaik, dan rute tercepat
 
-Pemilihan Quick Sort dan Dijkstra Algorithm
+- Pemilihan Quick Sort dan Dijkstra Algorithm
 
 ### 2. PPT Progress
 
-Membuat graph untuk tiap daerah di Surabaya Timur
+- Membuat graph untuk tiap daerah di Surabaya Timur
 
-Membuat tabel daftar hotel pada setiap daerah
+- Membuat tabel daftar hotel pada setiap daerah
 
-Membuat class: Hotel, HotelSeek, Graph, ScoreCalculator, Main
+- Membuat class: Hotel, HotelSeek, Graph, ScoreCalculator, Main
 
-Mengimplementasikan Quick Sort pada class Sorting
+- Mengimplementasikan Quick Sort pada class Sorting
 
-Menyediakan tiga opsi prioritas: Price, Rating, dan Balanced
+- Menyediakan tiga opsi prioritas: Price, Rating, dan Balanced
 
 ### 3. Final PPT
 
-Merapikan struktur dan kode program
+- Merapikan struktur dan kode program
 
-Mengimplementasikan Dijkstra Algorithm pada class Dijkstra
+- Mengimplementasikan Dijkstra Algorithm pada class Dijkstra
 
-Menambah opsi prioritas menjadi empat: Price, Rating, Balanced, dan Location
+- Menambah opsi prioritas menjadi empat: Price, Rating, Balanced, dan Location
 
-Menambahkan suggestion berdasarkan lokasi awal dan tujuan pengguna
+- Menambahkan suggestion berdasarkan lokasi awal dan tujuan pengguna
 
-Menampilkan hotel yang berada di lokasi tujuan
+- Menampilkan hotel yang berada di lokasi tujuan
+
 
 ## G. UPDATE
 ### 1. Pembaruan Program
@@ -129,3 +132,74 @@ Jika pengguna ingin mencari penginapan di daerah Merr namun tidak mengetahui ket
 Link Video Demo:
 https://youtu.be/PUTX35lZHWg
 ![WhatsApp Image 2025-12-14 at 15 43 10_011b992c](https://github.com/user-attachments/assets/dd46161a-b442-4cd7-82f5-a587b8e99fcd)
+
+## Daftar GitHub Final Project Kelas D
+D-1 : Word Rank Guesser Game
+
+Link : https://github.com/NashiwaInsan/asdfinalproject
+
+
+D-2 : Sistem Rekomendasi Event Berbasis Graph
+
+Link : https://github.com/dedyirama-id/kael-recommendation-system
+
+
+D-3 : Smart Traffic Light Simulator
+
+Link : https://github.com/Sudukk/FP_ASD_Traffic_Light_Simulation_FINAL
+
+
+D-4 : HotelSeek - Rekomendasi Pemilihan Hotel
+
+Link : https://github.com/dreadf/hotelseek
+
+
+D-5 :
+
+Link :
+
+
+D-6 : To-Do List
+
+Link : https://github.com/anggraitapr/ASDFPTODOLIST
+
+
+D-7 : Sistem Antrian IGD
+
+Link : https://github.com/WilliamHanantha/FP-ASD
+
+
+D-8 : Sistem Rekomendasi Jadwal Latihan dan Nutrisi Gym
+
+Link :https://github.com/tyr3x74/GymPlan
+
+
+D-9 : Sistem Rekomendasi Teman Berdasarkan Mutual Friends
+
+Link :https://github.com/mariaelvina/FinalProjectD9
+
+
+D-10 : Monster Chase
+
+Link : https://github.com/Aida41104/FPASD
+
+
+D-11 : Warehouse Management System
+
+Link : https://github.com/FasaBil/ASD-D11-Inventory-Management
+
+
+D-12 : Smart Traveling Planner
+
+Link : https://github.com/Dziky05/FP-ASD-KEL-13
+
+
+D-13 : Sistem Manajemen Inventaris Gudang dan Optimasi Rute Pengiriman
+
+Link : https://github.com/FashaAsshofa/Final-Project-ASD-D-Kelompok-13
+
+
+D-14 : Rekomendasi Film berbasis Graph
+
+Link : https://github.com/neutralcheeze/final-project-asd.git
+
