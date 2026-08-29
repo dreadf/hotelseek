@@ -9,6 +9,8 @@
 | 3  | Raid Orlando Azurae  | 5026241063 |
 | 4  | Naina Mazaya Putri   | 5026241183 |
 
+Kelompok: 4
+
 Kelas : D
 
 Program Studi : Sistem Informasi
